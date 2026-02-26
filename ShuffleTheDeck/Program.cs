@@ -7,6 +7,7 @@
  * [x] Create a display to show 52 cards 
 */
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 
 namespace ShuffleTheDeck
 {
@@ -19,12 +20,15 @@ namespace ShuffleTheDeck
         }
         static void Display()
         {
+            // Header
             string[] header = { "C", "D", "H", "S" };
             foreach (string s in header)
             {
                 Console.Write(s.PadLeft(4) + " |");
             }
+            // Line Space
             Console.WriteLine();
+            // Card display
             string location = "XX";
             for (int row = 0; row < 13; row++)
             {
@@ -34,6 +38,10 @@ namespace ShuffleTheDeck
                 }
                     Console.WriteLine();
             }
+        }
+        static private RandomCard()
+        {
+            Random number = new Random();
         }
        
     }
