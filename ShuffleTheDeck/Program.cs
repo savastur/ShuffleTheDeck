@@ -4,8 +4,7 @@
  * [] Clubs suit
  * [] Hearts suit
  * [] Spades suit
- * [] 
- * [] Create a display to show 52 cards 
+ * [x] Create a display to show 52 cards 
 */
 using System.ComponentModel.DataAnnotations;
 
@@ -20,10 +19,16 @@ namespace ShuffleTheDeck
         }
         static void Display()
         {
-            string location = "XX";
-            for (int row = 0; row < 52; row++)
+            string[] header = { "C", "D", "H", "S" };
+            foreach (string s in header)
             {
-                for (int column = 0; column < 13; column++)
+                Console.Write(s.PadLeft(4) + " |");
+            }
+            Console.WriteLine();
+            string location = "XX";
+            for (int row = 0; row < 13; row++)
+            {
+                for (int column = 0; column < 4; column++)
                 {
                     Console.Write(location.PadLeft(4) + " |");
                 }
