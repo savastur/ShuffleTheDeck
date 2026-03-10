@@ -5,7 +5,8 @@
  * [x] Hearts suit
  * [x] Spades suit
  * [x] Create a display to show 52 cards 
- * [] Create an intial display with cards in order
+ * [x] Create an intial display with cards in order
+ * [] Creeate user controls
 */
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
@@ -42,6 +43,18 @@ namespace ShuffleTheDeck
             cards[9] = "J";
             cards[10] = "Q";
             cards[11] = "K";
+            //Intial Card dispaly (Organized)
+            for(int row  = 0; row < 12; row++)
+            {
+                for (int column = 0; column < 4; column++)
+                {
+                    //Concatinates cards and row so it can be writen without spaces
+                    string total = cards[row] + index[column];
+                    Console.Write(total.PadLeft(4) + " |");
+                }
+                //Enter
+                Console.WriteLine();
+            }
             // Card display
             for (int row = 0; row < 13; row++)
             {
@@ -51,7 +64,8 @@ namespace ShuffleTheDeck
                     string card = DrawCardValue(cardIndex);
                     Console.Write(card.PadLeft(4) + " |");
                 }
-                    Console.WriteLine();
+                //Enter
+                Console.WriteLine();
             }
         }
         static private int RandomCard(int max)
@@ -65,7 +79,7 @@ namespace ShuffleTheDeck
             string[] cardvalues = new string[12];
             
             int number = 0;
-            number = RandomCard(12);
+            number = RandomCard(11);
             cardvalues[0] = "A";
             cardvalues[1] = "2";
             cardvalues[2] = "3";
@@ -78,7 +92,9 @@ namespace ShuffleTheDeck
             cardvalues[9] = "J";
             cardvalues[10] = "Q";
             cardvalues[11] = "K";
+            //Takes CardIndex and combines the two to give the card
             string cardSum = cardvalues [number] + cardValue;
+            //Returns the cancatinated strings
             return cardSum;
         }
     }
